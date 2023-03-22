@@ -22,3 +22,28 @@ footer {
     color: v.$c-white;
   }
 }
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-container {
+  position: fixed;
+  z-index: 1;
+  background-color: v.$c-dark-purple;
+  top: 0;
+  left: 0;
+  width: calc(100% - v.$p-ml * 1.5);
+  height: 100%;
+  padding: v.$p-ml;
+
+  .popup-container-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
