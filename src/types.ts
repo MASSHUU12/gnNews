@@ -1,11 +1,11 @@
 export type ContentItem = {
-  author: string;
+  author: string | null;
   title: string;
-  description: string;
+  description: string | null;
   url: string;
-  urlToImage: string;
+  urlToImage: string | null;
   publishedAt: string;
-  content: string;
+  content: string | null;
 };
 
 export type ListItem = {
@@ -14,15 +14,7 @@ export type ListItem = {
 };
 
 export type GridItem = {
-  urlToImage: string;
+  urlToImage: string | null;
 } & ListItem;
 
-export type News = {
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
-  content: string;
-}[];
+export type News = ContentItem[];

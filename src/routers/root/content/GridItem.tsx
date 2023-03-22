@@ -20,7 +20,10 @@ const GridItem: React.FunctionComponent<GridItem> = ({
       <h3>{title}</h3>
       <span>{publishedAt}</span>
       <div className="grid-item-image">
-        <img src={urlToImage} alt="Picture from the article" />
+        <img
+          src={!urlToImage ? "/public/no_image.svg" : urlToImage}
+          alt="Picture from the article"
+        />
       </div>
     </div>
   );
