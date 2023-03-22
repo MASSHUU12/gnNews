@@ -4,7 +4,12 @@ import { useAppDispatch } from "../../../hooks";
 import "./Content.scss";
 import ContentItem from "./ContentItem";
 
-const Content: React.FunctionComponent<any> = (props): JSX.Element => {
+/**
+ * Components that displays a list of news articles.
+ *
+ * @returns {JSX.Element}
+ */
+const Content: React.FunctionComponent<any> = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const testData = [
@@ -36,6 +41,7 @@ const Content: React.FunctionComponent<any> = (props): JSX.Element => {
     },
   ];
 
+  // Sets news data in the store.
   useEffect(() => {
     dispatch(setNews(testData));
   });

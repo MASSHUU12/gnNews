@@ -4,6 +4,11 @@ import Popup from "./Popup";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setHeaderMenu } from "../features/popup/popupSlice";
 
+/**
+ * Header component
+ *
+ * @return {*}  {JSX.Element}
+ */
 const Header: React.FunctionComponent<any> = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const popup = useAppSelector((state) => state.popup.headerMenuEnabled);

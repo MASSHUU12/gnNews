@@ -1,10 +1,16 @@
+import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { animated, useSpring } from "@react-spring/web";
-import { useState } from "react";
 
-import { disableMenus } from "../features/popup/popupSlice";
 import { useAppDispatch } from "../hooks";
+import { disableMenus } from "../features/popup/popupSlice";
 
+/**
+ * General popup component
+ *
+ * @param {*} props
+ * @return {*}  {JSX.Element}
+ */
 const Popup: React.FunctionComponent<any> = (props): JSX.Element => {
   const [revert, setRevert] = useState(false);
   const dispatch = useAppDispatch();

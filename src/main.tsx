@@ -1,3 +1,8 @@
+/**
+ * Entry point for the application,
+ * render the main component and sets up the React Router.
+ */
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -9,6 +14,7 @@ import { Provider } from "react-redux";
 
 import "./Global.scss";
 
+// Create the React Router with a Root component and a Content component.
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +29,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+// Render the main component with React Router and Redux store.
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
