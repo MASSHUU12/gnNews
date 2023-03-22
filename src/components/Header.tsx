@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header: React.FunctionComponent<any> = () => {
+const Header: React.FunctionComponent<any> = (): JSX.Element => {
   return (
     <header>
       <Link to="/" reloadDocument>

@@ -1,5 +1,21 @@
-@use "../../../Global.scss";
+@use "../../../variables.scss" as v;
 
 .content-container {
   min-height: 92vh;
+}
+
+.list-item {
+  background-color: v.$c-indigo;
+  margin: v.$p-ml;
+  padding: v.$p-ml;
+  border-radius: v.$p-s;
+
+  h3 {
+    font-size: v.$fs-r;
+    font-weight: 600;
+  }
+
+  span {
+    font-size: v.$fs-s;
+  }
 }

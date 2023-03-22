@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getCurrentTime } from "../helpers/getCurrentTime";
+import { getCurrentTime } from "../helpers/time";
 
-const Footer: React.FunctionComponent<any> = () => {
+const Footer: React.FunctionComponent<any> = (): JSX.Element => {
   const [time, setTime] = useState<string>(getCurrentTime());
 
   useEffect(() => {
