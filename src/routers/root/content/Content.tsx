@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { setNewsNumber } from "../../../features/news/newsSlice";
+import { setNews } from "../../../features/news/newsSlice";
 import { useAppDispatch } from "../../../hooks";
 import "./Content.scss";
 import ContentItem from "./ContentItem";
@@ -37,7 +37,7 @@ const Content: React.FunctionComponent<any> = (props): JSX.Element => {
   ];
 
   useEffect(() => {
-    dispatch(setNewsNumber(testData.length));
+    dispatch(setNews(testData));
   });
 
   return (

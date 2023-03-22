@@ -1,22 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { News } from "../../types";
 
 interface NewsState {
   newsNumber: number;
+  news: News;
 }
 
 const initialState: NewsState = {
   newsNumber: 0,
+  news: [],
 };
 
 export const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    setNewsNumber: (state, action: PayloadAction<number>) => {
-      state.newsNumber = action.payload;
+    setNews: (state, action: PayloadAction<News>) => {
+      state.newsNumber = action.payload.length;
+      state.news = action.payload;
     },
   },
 });
 
-export const { setNewsNumber } = newsSlice.actions;
+export const { setNews } = newsSlice.actions;
 export default newsSlice.reducer;
