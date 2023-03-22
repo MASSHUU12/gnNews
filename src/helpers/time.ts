@@ -21,3 +21,20 @@ export function getCurrentTime(timezone?: string): string {
     "0"
   )}`;
 }
+
+/**
+ * Formats an ISO 8601 date string as a formatted date and time string.
+ *
+ * @param {string} iso - The ISO 8601 date string to format.
+ * @returns {string} The formatted date and time string.
+ */
+export function formatISODate(iso: string): string {
+  // create a new Date object from the ISO string
+  const date = new Date(iso);
+
+  const dateString = date.toLocaleDateString();
+  const timeString = date.toLocaleTimeString();
+
+  // returns the formatted date and time string
+  return dateString + " " + timeString;
+}
