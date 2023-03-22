@@ -21,7 +21,7 @@ const GridItem: React.FunctionComponent<GridItem> = ({
       <span>{publishedAt}</span>
       <div className="grid-item-image">
         <img
-          src={!urlToImage ? "/public/no_image.svg" : urlToImage}
+          src={!urlToImage ? "/no_image.svg" : urlToImage}
           alt="Picture from the article"
         />
       </div>

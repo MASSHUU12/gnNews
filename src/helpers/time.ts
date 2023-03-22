@@ -29,12 +29,15 @@ export function getCurrentTime(timezone?: string): string {
  * @returns {string} The formatted date and time string.
  */
 export function formatISODate(iso: string): string {
-  // create a new Date object from the ISO string
+  // Create a new Date object from the ISO string
   const date = new Date(iso);
+
+  // Check if the date is invalid
+  if (isNaN(date.getTime())) return "";
 
   const dateString = date.toLocaleDateString();
   const timeString = date.toLocaleTimeString();
 
-  // returns the formatted date and time string
+  // Returns the formatted date and time string
   return dateString + " " + timeString;
 }
