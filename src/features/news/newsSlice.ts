@@ -12,11 +12,11 @@ export const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    setNews: (state, action: PayloadAction<number>) => {
+    setNewsNumber: (state, action: PayloadAction<number>) => {
       state.newsNumber = action.payload;
     },
   },
 });
 
-export const { setNews } = newsSlice.actions;
+export const { setNewsNumber } = newsSlice.actions;
 export default newsSlice.reducer;

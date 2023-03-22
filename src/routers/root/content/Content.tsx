@@ -1,7 +1,12 @@
+import { useEffect } from "react";
+import { setNewsNumber } from "../../../features/news/newsSlice";
+import { useAppDispatch } from "../../../hooks";
 import "./Content.scss";
 import ContentItem from "./ContentItem";
 
 const Content: React.FunctionComponent<any> = (props): JSX.Element => {
+  const dispatch = useAppDispatch();
+
   const testData = [
     {
       author: "Andrea Blanco",
@@ -30,6 +35,10 @@ const Content: React.FunctionComponent<any> = (props): JSX.Element => {
         "Who is plaintiff Terry Sanderson?\r\nA 76-year-old retired optometrist is suing actor-turned-lifestyle influencer Gwyneth Paltrow after he claims she struck him in a hit-and-run ski crash seven years a…",
     },
   ];
+
+  useEffect(() => {
+    dispatch(setNewsNumber(testData.length));
+  });
 
   return (
     <div className="content-container">
