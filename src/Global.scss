@@ -1,3 +1,24 @@
+@use "./variables" as v;
+
+@import url('https://api.fonts.coollabs.io/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
 * {
   margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: v.$c-dark-purple;
+  color: v.$c-white;
+}
+
+header,
+footer {
+  background-color: v.$c-indigo;
+  padding: v.$p-ml;
+
+  a {
+    text-decoration: none;
+    color: v.$c-white;
+  }
 }
