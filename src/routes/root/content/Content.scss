@@ -11,6 +11,9 @@
   border-radius: v.$p-s;
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   h3 {
     font-size: v.$fs-r;
@@ -71,5 +74,29 @@
         rgba(255, 255, 255, 0) 0%,
         rgba(0, 0, 0, 0.5) 45%,
         rgba(0, 0, 0, 0.70) 100%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .content-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 4), 1fr));
+
+    div {
+      height: fit-content;
+
+      .grid-item {
+        min-height: 25vh;
+
+        h3 {
+          margin: unset;
+        }
+      }
+
+      .list-item {
+        justify-content: center;
+        min-height: 10vh;
+      }
+    }
   }
 }

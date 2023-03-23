@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -6,49 +5,18 @@ import { setLayout } from "../../features/layout/layoutSlice";
 
 import Popup from "./Popup";
 import "./Menu.scss";
-import countriesData from "../../countries.json";
 import { setTargetCountry } from "../../features/news/newsSlice";
 import { TogglePopup } from "../../interfaces";
+import CountryItem from "../CountryItem";
 
 const Menu: React.FunctionComponent<TogglePopup> = ({
   togglePopup,
-}: Props): JSX.Element => {
+}: TogglePopup): JSX.Element => {
   const layout = useAppSelector((state) => state.layout.layout);
+  const countriesData = useAppSelector((state) => state.countries.countries);
   const dispatch = useAppDispatch();
 
   const { t, i18n } = useTranslation();
-
-  const countries = Object.keys(countriesData).map((key) => ({
-    code: key,
-    name: {
-      en: countriesData[key].en,
-      pl: countriesData[key].pl,
-    },
-  }));
-
-  const CountryItem = memo(
-    ({
-      code,
-      name,
-      onClick,
-    }: {
-      code: string;
-      name: string;
-      onClick: () => any;
-    }): JSX.Element => (
-      <section className="menu-contry">
-        <Icon
-          icon={`flagpack:${code === "gb" ? "gb-ukm" : code}`}
-          color="white"
-          width="48"
-          onClick={onClick}
-        />
-        <span>{name}</span>
-      </section>
-    ),
-    (prevProps, nextProps) =>
-      prevProps.code === nextProps.code && prevProps.name === nextProps.name
-  );
 
   return (
     <Popup title="" togglePopup={togglePopup}>
@@ -92,13 +60,17 @@ const Menu: React.FunctionComponent<TogglePopup> = ({
       </section>
       <p>{t("news_from")}:</p>
       <section className="menu-countries">
-        {countries.map((country) => (
+        {Object.keys(countriesData).map((key) => (
           <CountryItem
-            key={country.code}
-            code={country.code}
-            name={i18n.language === "en" ? country.name.en : country.name.pl}
+            key={key}
+            code={key}
+            name={
+              i18n.language === "en"
+                ? countriesData[key].en
+                : countriesData[key].pl
+            }
             onClick={() => {
-              dispatch(setTargetCountry(country.code));
+              dispatch(setTargetCountry(countriesData[key].en));
             }}
           />
         ))}

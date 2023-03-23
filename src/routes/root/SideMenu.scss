@@ -1,0 +1,13 @@
+@use "../../variables" as v;
+
+.side_menu-container {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .side_menu-container {
+    display: block;
+    background-color: v.$c-indigo;
+    width: fit-content;
+  }
+}

@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import SideMenu from "./SideMenu";
+
+import "./Root.scss";
 
 /**
  * Root component for the application.
@@ -23,7 +26,10 @@ const Root: React.FunctionComponent<any> = (): JSX.Element => {
   return (
     <div>
       <Header />
-      <Outlet />
+      <div className="root-content-container">
+        <SideMenu />
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

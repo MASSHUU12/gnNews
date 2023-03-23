@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import newsReducer from "../features/news/newsSlice";
 import layoutReducer from "../features/layout/layoutSlice";
+import countriesReducer from "../features/countries/countriesSlice";
 
 export const store = configureStore({
   reducer: {
     news: newsReducer,
     layout: layoutReducer,
+    countries: countriesReducer,
   },
 });
 

@@ -31,12 +31,4 @@ p {
   height: 70vh;
   overflow-y: scroll;
   gap: v.$p-m;
-
-  .menu-contry {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: v.$p-m;
-  }
 }
