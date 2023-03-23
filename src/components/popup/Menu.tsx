@@ -1,10 +1,11 @@
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { setLayout } from "../../features/layout/layoutSlice";
 
 import Popup from "./Popup";
 import "./Menu.scss";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { setLayout } from "../../features/layout/layoutSlice";
+import countries from "../../countries.json";
 
 const Menu: React.FunctionComponent<any> = (): JSX.Element => {
   const layout = useAppSelector((state) => state.layout.layout);
@@ -51,6 +52,24 @@ const Menu: React.FunctionComponent<any> = (): JSX.Element => {
             i18n.changeLanguage("en");
           }}
         />
+      </section>
+      <p>News from:</p>
+      <section className="menu-countries">
+        {Object.keys(countries).map((key) => (
+          <section className="menu-contry" key={key}>
+            <Icon
+              icon={`flagpack:${key === "gb" ? "gb-ukm" : key}`}
+              color="white"
+              width="48"
+              onClick={() => {
+                i18n.changeLanguage("en");
+              }}
+            />
+            <span>
+              {i18n.language === "en" ? countries[key].en : countries[key].pl}
+            </span>
+          </section>
+        ))}
       </section>
     </Popup>
   );
