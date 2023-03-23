@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import Popup from "./Popup";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setHeaderMenu } from "../features/popup/popupSlice";
+import Menu from "./popup/Menu";
 
 /**
  * Header component
@@ -26,11 +26,7 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
           onClick={() => dispatch(setHeaderMenu(true))}
         />
       </header>
-      {popup && (
-        <Popup title="Menu">
-          <p>Lorem ipsum dolor sit amet</p>
-        </Popup>
-      )}
+      {popup && <Menu />}
     </>
   );
 };

@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import newsReducer from "../features/news/newsSlice";
 import popupReducer from "../features/popup/popupSlice";
+import layoutReducer from "../features/layout/layoutSlice";
 
 export const store = configureStore({
   reducer: {
     news: newsReducer,
     popup: popupReducer,
+    layout: layoutReducer,
   },
 });
 

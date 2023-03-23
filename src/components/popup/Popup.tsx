@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { animated, useSpring } from "@react-spring/web";
-
-import { useAppDispatch } from "../hooks";
-import { disableMenus } from "../features/popup/popupSlice";
 import Scroll from "@masshuu/scroll-utilities";
+
+import { useAppDispatch } from "../../hooks";
+import { disableMenus } from "../../features/popup/popupSlice";
+
+import "./Popup.scss";
 
 /**
  * General popup component
@@ -27,7 +29,6 @@ const Popup: React.FunctionComponent<any> = (props): JSX.Element => {
     to: {
       x: 0,
     },
-    reset: true,
   };
 
   const bgAnimation = useSpring({

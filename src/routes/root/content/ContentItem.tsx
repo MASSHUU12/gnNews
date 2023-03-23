@@ -1,4 +1,5 @@
 import { formatISODate } from "../../../helpers/time";
+import { useAppSelector } from "../../../hooks";
 import { ContentItem } from "../../../types";
 import GridItem from "./GridItem";
 import ListItem from "./ListItem";
@@ -26,11 +27,11 @@ const ContentItem: React.FunctionComponent<ContentItem> = ({
   publishedAt,
   content,
 }): JSX.Element => {
-  const preferredGrid = true;
+  const layout = useAppSelector((state) => state.layout.layout);
 
   return (
     <div>
-      {preferredGrid ? (
+      {layout === "grid" ? (
         <GridItem
           title={title}
           publishedAt={formatISODate(publishedAt)}

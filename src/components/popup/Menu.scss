@@ -1,0 +1,18 @@
+@use "../../variables" as v;
+
+.menu-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: v.$p-m;
+  margin: v.$p-s 0;
+
+  svg[data-active="false"] {
+    color: v.$c-gray;
+  }
+
+  svg[data-active="true"] {
+    color: v.$c-blue;
+  }
+}
