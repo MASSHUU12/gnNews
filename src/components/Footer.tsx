@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import { getCurrentTime } from "../helpers/time";
 import { useAppSelector } from "../hooks";
 
@@ -11,6 +13,8 @@ const Footer: React.FunctionComponent<any> = (): JSX.Element => {
   const [time, setTime] = useState<string>(getCurrentTime());
   const newsNumber = useAppSelector((state) => state.news.newsNumber);
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(getCurrentTime());
@@ -21,7 +25,7 @@ const Footer: React.FunctionComponent<any> = (): JSX.Element => {
 
   return (
     <footer>
-      Godzina: {time}, artykuły: {newsNumber}
+      {t("time")}: {time}, {t("articles")}: {newsNumber}
     </footer>
   );
 };

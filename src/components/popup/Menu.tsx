@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 
 import Popup from "./Popup";
 import "./Menu.scss";
@@ -9,10 +10,12 @@ const Menu: React.FunctionComponent<any> = (): JSX.Element => {
   const layout = useAppSelector((state) => state.layout.layout);
   const dispatch = useAppDispatch();
 
+  const { t, i18n } = useTranslation();
+
   return (
-    <Popup title="Menu">
+    <Popup title="">
       <section className="menu-row">
-        <span>Layout:</span>
+        <span>{t("layout")}:</span>
         <Icon
           icon="material-symbols:featured-play-list"
           width="48"
@@ -31,9 +34,23 @@ const Menu: React.FunctionComponent<any> = (): JSX.Element => {
         />
       </section>
       <section className="menu-row">
-        <span>Language:</span>
-        <Icon icon="flagpack:pl" color="white" width="48" />
-        <Icon icon="flagpack:us" color="white" width="48" />
+        <span>{t("language")}:</span>
+        <Icon
+          icon="flagpack:pl"
+          color="white"
+          width="48"
+          onClick={() => {
+            i18n.changeLanguage("pl");
+          }}
+        />
+        <Icon
+          icon="flagpack:us"
+          color="white"
+          width="48"
+          onClick={() => {
+            i18n.changeLanguage("en");
+          }}
+        />
       </section>
     </Popup>
   );
