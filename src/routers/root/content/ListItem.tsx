@@ -1,22 +1,22 @@
-import { ListItem } from "../../../types";
+import { ListItem as Item } from "../../../types";
 
 /**
  * Component that renders a list item
  * for a given item in the format defined by the `ListItem` type.
  *
- * @param {ListItem} props - The props object containing the data for the list item.
+ * @param {List} props - The props object containing the data for the list item.
  * @param {string} props.title - The title of the list item.
  * @param {string} props.publishedAt - The published date of the list item.
  * @returns {JSX.Element}
  */
-const ListItem: React.FunctionComponent<ListItem> = ({
+const ListItem: React.FunctionComponent<Item> = ({
   title,
   publishedAt,
-}): JSX.Element => {
+}: Item): JSX.Element => {
   return (
     <div className="list-item">
       <h3>{title}</h3>
-      <span>{publishedAt}</span>
+      <h4>{publishedAt}</h4>
     </div>
   );
 };

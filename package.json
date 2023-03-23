@@ -30,6 +30,7 @@
     "@babel/preset-typescript": "^7.21.0",
     "@iconify/react": "^4.1.0",
     "@redux-devtools/core": "^3.13.1",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.0",
     "@types/react": "^18.0.28",
