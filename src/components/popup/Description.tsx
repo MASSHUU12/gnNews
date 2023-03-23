@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { formatISODate } from "../../helpers/time";
 import { TogglePopup } from "../../interfaces";
 import { ContentItem } from "../../types";
@@ -16,6 +18,8 @@ const Description: React.FunctionComponent<Props> = ({
   publishedAt,
   content,
 }: Props): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <Popup title={author ? author : ""} togglePopup={togglePopup}>
       <section className="description-content">
@@ -27,9 +31,11 @@ const Description: React.FunctionComponent<Props> = ({
             ? content
             : "No information on the content, click the link below to go to the source"}
         </p>
-        <span>Posted: {formatISODate(publishedAt)}</span>
+        <span>
+          {t("posted")}: {formatISODate(publishedAt)}
+        </span>
         <a href={url} target="_blank">
-          Source
+          {t("source")}
         </a>
       </section>
     </Popup>

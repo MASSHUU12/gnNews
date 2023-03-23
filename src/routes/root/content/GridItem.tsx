@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { GridItem as Grid } from "../../../types";
 
 /**
@@ -16,6 +18,8 @@ const GridItem: React.FunctionComponent<Grid> = ({
   urlToImage,
   description,
 }: Grid): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <div className="grid-item">
       <h3>{title}</h3>
@@ -24,7 +28,7 @@ const GridItem: React.FunctionComponent<Grid> = ({
       <div className="grid-item-image">
         <img
           src={!urlToImage ? "/no_image.svg" : urlToImage}
-          alt="Picture from the article"
+          alt={t("article_picture") as string}
         />
       </div>
     </div>

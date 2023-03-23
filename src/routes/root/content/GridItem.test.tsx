@@ -22,10 +22,7 @@ describe("GridItem", () => {
     expect(screen.getByRole("heading", { level: 5 })).toHaveTextContent(
       props.publishedAt
     );
-    expect(screen.getByAltText("Picture from the article")).toHaveAttribute(
-      "src",
-      props.urlToImage
-    );
+    expect(screen.getByRole("img")).toHaveAttribute("src", props.urlToImage);
   });
 
   it("Should not render description when no description prop is provided.", () => {
@@ -37,10 +34,7 @@ describe("GridItem", () => {
   it("should render a default image when no urlToImage prop is provided", () => {
     render(<GridItem {...props} urlToImage={null} />);
 
-    expect(screen.getByAltText("Picture from the article")).toHaveAttribute(
-      "src",
-      "/no_image.svg"
-    );
+    expect(screen.getByRole("img")).toHaveAttribute("src", "/no_image.svg");
   });
 
   it('should have a div with class "grid-item"', () => {

@@ -3,5 +3,8 @@
   "language": "Language",
   "time": "Time",
   "articles": "articles",
-  "news_from": "News from"
+  "news_from": "News from",
+  "article_picture": "Picture from the article",
+  "posted": "Posted",
+  "source": "Source"
 }

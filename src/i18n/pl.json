@@ -3,5 +3,8 @@
   "language": "Język",
   "time": "Godzina",
   "articles": "artykuły",
-  "news_from": "Artykuły z"
+  "news_from": "Artykuły z",
+  "article_picture": "Zdjęcie z artykułu",
+  "posted": "Udostępniono",
+  "source": "Źródło"
 }
