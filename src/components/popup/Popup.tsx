@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { animated, useSpring } from "@react-spring/web";
-import Scroll from "@masshuu/scroll-utilities";
+import Scroll from "../../helpers/scroll";
 
 import { useAppDispatch } from "../../hooks";
 import { disableMenus } from "../../features/popup/popupSlice";
