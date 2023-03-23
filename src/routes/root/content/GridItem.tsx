@@ -14,11 +14,13 @@ const GridItem: React.FunctionComponent<Grid> = ({
   title,
   publishedAt,
   urlToImage,
+  description,
 }: Grid): JSX.Element => {
   return (
     <div className="grid-item">
       <h3>{title}</h3>
-      <h4>{publishedAt}</h4>
+      {description && <h4>{description}</h4>}
+      <h5>{publishedAt}</h5>
       <div className="grid-item-image">
         <img
           src={!urlToImage ? "/no_image.svg" : urlToImage}

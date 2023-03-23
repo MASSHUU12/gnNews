@@ -17,7 +17,8 @@
     font-weight: 600;
   }
 
-  h4 {
+  h4,
+  h5 {
     font-size: v.$fs-s;
     font-weight: 400;
     margin: v.$p-s 0 0 0;
@@ -36,6 +37,14 @@
     margin: v.$p-xl 0 0 0;
   }
 
+  h4 {
+    font-size: v.$fs-sr;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .grid-item-image {
     position: absolute;
     width: 100%;
@@ -47,7 +56,6 @@
     border-radius: v.$p-s;
 
     img {
-      display: block;
       width: 100%;
     }
   }

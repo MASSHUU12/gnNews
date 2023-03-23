@@ -45,6 +45,7 @@ const ContentItem: React.FunctionComponent<ContentItem> = ({
             title={title}
             publishedAt={formatISODate(publishedAt)}
             urlToImage={urlToImage}
+            description={description}
           />
         ) : (
           <ListItem title={title} publishedAt={formatISODate(publishedAt)} />

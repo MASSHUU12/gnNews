@@ -7,6 +7,7 @@ describe("GridItem", () => {
     title: "Test title",
     publishedAt: "2069-01-01",
     urlToImage: "http://testurl.com/testimage.jpg",
+    description: "Lorem ipsum dolor sit amet.",
   };
 
   it("should render the title, publishedAt, and image props correctly", () => {
@@ -16,12 +17,21 @@ describe("GridItem", () => {
       props.title
     );
     expect(screen.getByRole("heading", { level: 4 })).toHaveTextContent(
+      props.description
+    );
+    expect(screen.getByRole("heading", { level: 5 })).toHaveTextContent(
       props.publishedAt
     );
     expect(screen.getByAltText("Picture from the article")).toHaveAttribute(
       "src",
       props.urlToImage
     );
+  });
+
+  it("Should not render description when no description prop is provided.", () => {
+    render(<GridItem {...props} description={null} />);
+
+    expect(screen.queryByRole("heading", { level: 4 })).not.toBeInTheDocument();
   });
 
   it("should render a default image when no urlToImage prop is provided", () => {

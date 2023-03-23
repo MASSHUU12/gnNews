@@ -15,6 +15,7 @@ export type ListItem = {
 
 export type GridItem = {
   urlToImage: string | null;
+  description: string | null;
 } & ListItem;
 
 export type News = ContentItem[];
