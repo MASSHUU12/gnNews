@@ -2,5 +2,6 @@
   "layout": "Layout",
   "language": "Language",
   "time": "Time",
-  "articles": "articles"
+  "articles": "articles",
+  "news_from": "News from"
 }

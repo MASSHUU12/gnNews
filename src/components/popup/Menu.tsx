@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -5,13 +6,45 @@ import { setLayout } from "../../features/layout/layoutSlice";
 
 import Popup from "./Popup";
 import "./Menu.scss";
-import countries from "../../countries.json";
+import countriesData from "../../countries.json";
 
 const Menu: React.FunctionComponent<any> = (): JSX.Element => {
   const layout = useAppSelector((state) => state.layout.layout);
   const dispatch = useAppDispatch();
 
   const { t, i18n } = useTranslation();
+
+  const countries = Object.keys(countriesData).map((key) => ({
+    code: key,
+    name: {
+      en: countriesData[key].en,
+      pl: countriesData[key].pl,
+    },
+  }));
+
+  const CountryItem = memo(
+    ({
+      code,
+      name,
+      onClick,
+    }: {
+      code: string;
+      name: string;
+      onClick: () => any;
+    }): JSX.Element => (
+      <section className="menu-contry">
+        <Icon
+          icon={`flagpack:${code === "gb" ? "gb-ukm" : code}`}
+          color="white"
+          width="48"
+          onClick={onClick}
+        />
+        <span>{name}</span>
+      </section>
+    ),
+    (prevProps, nextProps) =>
+      prevProps.code === nextProps.code && prevProps.name === nextProps.name
+  );
 
   return (
     <Popup title="">
@@ -53,22 +86,17 @@ const Menu: React.FunctionComponent<any> = (): JSX.Element => {
           }}
         />
       </section>
-      <p>News from:</p>
+      <p>{t("news_from")}:</p>
       <section className="menu-countries">
-        {Object.keys(countries).map((key) => (
-          <section className="menu-contry" key={key}>
-            <Icon
-              icon={`flagpack:${key === "gb" ? "gb-ukm" : key}`}
-              color="white"
-              width="48"
-              onClick={() => {
-                i18n.changeLanguage("en");
-              }}
-            />
-            <span>
-              {i18n.language === "en" ? countries[key].en : countries[key].pl}
-            </span>
-          </section>
+        {countries.map((country) => (
+          <CountryItem
+            key={country.code}
+            code={country.code}
+            name={i18n.language === "en" ? country.name.en : country.name.pl}
+            onClick={() => {
+              i18n.changeLanguage("en");
+            }}
+          />
         ))}
       </section>
     </Popup>
