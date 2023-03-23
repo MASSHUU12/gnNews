@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Description from "../../../components/popup/Description";
 import { formatISODate } from "../../../helpers/time";
 import { useAppSelector } from "../../../hooks";
 import { ContentItem } from "../../../types";
@@ -26,21 +28,43 @@ const ContentItem: React.FunctionComponent<ContentItem> = ({
   urlToImage,
   publishedAt,
   content,
-}): JSX.Element => {
+}: ContentItem): JSX.Element => {
   const layout = useAppSelector((state) => state.layout.layout);
 
+  const [popupEnabled, setPopupEnabled] = useState(false);
+
+  const togglePopup = (enabled: boolean) => {
+    setPopupEnabled(enabled);
+  };
+
   return (
-    <div>
-      {layout === "grid" ? (
-        <GridItem
-          title={title}
-          publishedAt={formatISODate(publishedAt)}
-          urlToImage={urlToImage}
+    <>
+      <div onClick={() => togglePopup(true)}>
+        {layout === "grid" ? (
+          <GridItem
+            title={title}
+            publishedAt={formatISODate(publishedAt)}
+            urlToImage={urlToImage}
+          />
+        ) : (
+          <ListItem title={title} publishedAt={formatISODate(publishedAt)} />
+        )}
+      </div>
+      {popupEnabled && (
+        <Description
+          togglePopup={togglePopup}
+          {...{
+            author,
+            title,
+            description,
+            url,
+            urlToImage,
+            publishedAt,
+            content,
+          }}
         />
-      ) : (
-        <ListItem title={title} publishedAt={formatISODate(publishedAt)} />
       )}
-    </div>
+    </>
   );
 };
 

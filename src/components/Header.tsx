@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { setHeaderMenu } from "../features/popup/popupSlice";
 import Menu from "./popup/Menu";
+import { useState } from "react";
 
 /**
  * Header component
@@ -10,8 +9,11 @@ import Menu from "./popup/Menu";
  * @return {*}  {JSX.Element}
  */
 const Header: React.FunctionComponent<any> = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  const popup = useAppSelector((state) => state.popup.headerMenuEnabled);
+  const [popupEnabled, setPopupEnabled] = useState(false);
+
+  const togglePopup = (enabled: boolean) => {
+    setPopupEnabled(enabled);
+  };
 
   return (
     <>
@@ -23,10 +25,10 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
           icon="icon-park-outline:hamburger-button"
           color="#00a3ff"
           width="32"
-          onClick={() => dispatch(setHeaderMenu(true))}
+          onClick={() => setPopupEnabled(true)}
         />
       </header>
-      {popup && <Menu />}
+      {popupEnabled && <Menu togglePopup={togglePopup} />}
     </>
   );
 };

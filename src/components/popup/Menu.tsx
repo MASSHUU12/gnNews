@@ -7,8 +7,12 @@ import { setLayout } from "../../features/layout/layoutSlice";
 import Popup from "./Popup";
 import "./Menu.scss";
 import countriesData from "../../countries.json";
+import { setTargetCountry } from "../../features/news/newsSlice";
+import { TogglePopup } from "../../interfaces";
 
-const Menu: React.FunctionComponent<any> = (): JSX.Element => {
+const Menu: React.FunctionComponent<TogglePopup> = ({
+  togglePopup,
+}: Props): JSX.Element => {
   const layout = useAppSelector((state) => state.layout.layout);
   const dispatch = useAppDispatch();
 
@@ -47,7 +51,7 @@ const Menu: React.FunctionComponent<any> = (): JSX.Element => {
   );
 
   return (
-    <Popup title="">
+    <Popup title="" togglePopup={togglePopup}>
       <section className="menu-row">
         <span>{t("layout")}:</span>
         <Icon
@@ -94,7 +98,7 @@ const Menu: React.FunctionComponent<any> = (): JSX.Element => {
             code={country.code}
             name={i18n.language === "en" ? country.name.en : country.name.pl}
             onClick={() => {
-              i18n.changeLanguage("en");
+              dispatch(setTargetCountry(country.code));
             }}
           />
         ))}

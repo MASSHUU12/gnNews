@@ -1,0 +1,20 @@
+@use "../../variables" as v;
+
+.description-content {
+  display: flex;
+  flex-direction: column;
+  gap: v.$p-m;
+
+  h3 {
+    font-weight: 600;
+    margin: v.$p-m 0 0 0;
+  }
+
+  span {
+    font-weight: 300;
+  }
+
+  a {
+    color: v.$c-white;
+  }
+}

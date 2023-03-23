@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { animated, useSpring } from "@react-spring/web";
+
 import Scroll from "../../helpers/scroll";
-
-import { useAppDispatch } from "../../hooks";
-import { disableMenus } from "../../features/popup/popupSlice";
-
+import { TogglePopup } from "../../interfaces";
 import "./Popup.scss";
+
+interface Props extends TogglePopup {
+  title: string;
+  children?: any;
+}
 
 /**
  * General popup component
@@ -14,9 +17,8 @@ import "./Popup.scss";
  * @param {*} props
  * @return {*}  {JSX.Element}
  */
-const Popup: React.FunctionComponent<any> = (props): JSX.Element => {
+const Popup: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const [revert, setRevert] = useState(false);
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     Scroll.disable();
@@ -35,7 +37,7 @@ const Popup: React.FunctionComponent<any> = (props): JSX.Element => {
     ...animation,
     reverse: revert,
     onRest: () => {
-      revert && (dispatch(disableMenus()), Scroll.enable());
+      revert && (props.togglePopup(false), Scroll.enable());
     },
   });
 
