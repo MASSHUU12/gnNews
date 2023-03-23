@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { animated, useSpring } from "@react-spring/web";
 
 import { useAppDispatch } from "../hooks";
 import { disableMenus } from "../features/popup/popupSlice";
+import Scroll from "@masshuu/scroll-utilities";
 
 /**
  * General popup component
@@ -14,6 +15,10 @@ import { disableMenus } from "../features/popup/popupSlice";
 const Popup: React.FunctionComponent<any> = (props): JSX.Element => {
   const [revert, setRevert] = useState(false);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    Scroll.disable();
+  }, []);
 
   const animation = {
     from: {
@@ -29,7 +34,7 @@ const Popup: React.FunctionComponent<any> = (props): JSX.Element => {
     ...animation,
     reverse: revert,
     onRest: () => {
-      revert && dispatch(disableMenus());
+      revert && (dispatch(disableMenus()), Scroll.enable());
     },
   });
 

@@ -7,7 +7,7 @@ import ListItem from "./ListItem";
 describe("ListItem", () => {
   const props = {
     title: "Test title",
-    publishedAt: "2022-01-01",
+    publishedAt: "2069-01-01",
   };
 
   it("should render the title and publishedAt props correctly", () => {

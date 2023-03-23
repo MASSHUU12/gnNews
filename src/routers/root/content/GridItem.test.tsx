@@ -5,7 +5,7 @@ import GridItem from "./GridItem";
 describe("GridItem", () => {
   const props = {
     title: "Test title",
-    publishedAt: "2022-01-01",
+    publishedAt: "2069-01-01",
     urlToImage: "http://testurl.com/testimage.jpg",
   };
 
