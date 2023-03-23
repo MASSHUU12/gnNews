@@ -8,9 +8,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import Error from "./routers/error/Error";
-import Content from "./routers/root/content/Content";
-import Root from "./routers/root/Root";
+import Error from "./routes/error/Error";
+import Content from "./routes/root/content/Content";
+import Root from "./routes/root/Root";
 
 import { store } from "./app/store";
 
