@@ -9,7 +9,7 @@ const Info: React.FunctionComponent<TogglePopup> = ({
   const { t } = useTranslation();
 
   return (
-    <Popup title="Some info" togglePopup={togglePopup}>
+    <Popup title={t("about_project")} togglePopup={togglePopup}>
       <p>{t("biggest_challenge")}</p>
       <p>{t("the_most_fun")}</p>
     </Popup>
