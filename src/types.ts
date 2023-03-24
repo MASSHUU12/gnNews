@@ -19,3 +19,23 @@ export type GridItem = {
 } & ListItem;
 
 export type News = ContentItem[];
+
+type Article = {
+  source: {
+    id: string | null;
+    name: string;
+  };
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
+};
+
+export type NewsAPIResponse = {
+  status: string;
+  totalResults: number;
+  articles: Article[];
+};

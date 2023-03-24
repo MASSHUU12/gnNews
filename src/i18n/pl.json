@@ -6,5 +6,8 @@
   "news_from": "Artykuły z",
   "article_picture": "Zdjęcie z artykułu",
   "posted": "Udostępniono",
-  "source": "Źródło"
+  "source": "Źródło",
+  "test_data_warning": "Uwaga, korzystasz z danych testowych, jeśli chcesz wyświetlić faktyczne informacje, skonfiguruj odpowiednio plik .env.",
+  "biggest_challenge": "Największym wyzwaniem było stworzenie designu strony, co pewnie widać, oraz pisanie testów z tego względu, że nigdy tego nie robiłem, to był pierwszy raz.",
+  "the_most_fun": "Największą frajdę sprawiła oczywiście sama implementacja wszystkich mechanik, całego projektu. Pewnie spędziłem nad tym więcej czasu, niż powinienem, ale uwielbiam kombinować."
 }

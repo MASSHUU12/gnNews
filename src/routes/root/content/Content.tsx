@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import { setNews } from "../../../features/news/newsSlice";
-import { useAppDispatch } from "../../../hooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
 import "./Content.scss";
 import ContentItem from "./ContentItem";
 
 import testData from "./TestData.json";
+import { News, NewsAPIResponse } from "../../../types";
 
 /**
  * Components that displays a list of news articles.
@@ -13,15 +16,41 @@ import testData from "./TestData.json";
  */
 const Content: React.FunctionComponent<any> = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const targetCountry = useAppSelector((state) => state.news.targetCountry);
+  const data = useAppSelector((state) => state.news.news);
+
+  const { t } = useTranslation();
 
   // Sets news data in the store.
   useEffect(() => {
-    if (import.meta.env.VITE_USE_API === "false") dispatch(setNews(testData));
-  });
+    if (import.meta.env.VITE_USE_API === "false") {
+      alert(t("test_data_warning"));
+      dispatch(setNews(testData));
+    } else {
+      fetch(
+        `https://newsapi.org/v2/top-headlines?country=${targetCountry}&apiKey=${
+          import.meta.env.VITE_API_KEY
+        }`
+      ).then((response) => {
+        response.json().then((data: NewsAPIResponse) => {
+          let news: News = [];
+
+          // console.log(data);
+
+          data.articles.map((article) => {
+            console.log(article);
+
+            news.push(article);
+          });
+          dispatch(setNews(news));
+        });
+      });
+    }
+  }, [targetCountry]);
 
   return (
     <div className="content-container">
-      {testData.map((item, index) => {
+      {data.map((item, index) => {
         return (
           <ContentItem
             key={index}

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setLayout } from "../features/layout/layoutSlice";
 import i18n from "../i18n";
+import Info from "./popup/Info";
 
 /**
  * Header component
@@ -12,13 +13,10 @@ import i18n from "../i18n";
  * @return {*}  {JSX.Element}
  */
 const Header: React.FunctionComponent<any> = (): JSX.Element => {
-  const [popupEnabled, setPopupEnabled] = useState(false);
+  const [menuPopupEnabled, setMenuPopupEnabled] = useState(false);
+  const [infoPopupEnabled, setInfoPopupEnabled] = useState(false);
   const layout = useAppSelector((state) => state.layout.layout);
   const dispatch = useAppDispatch();
-
-  const togglePopup = (enabled: boolean) => {
-    setPopupEnabled(enabled);
-  };
 
   return (
     <>
@@ -31,7 +29,7 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
           icon="icon-park-outline:hamburger-button"
           color="#00a3ff"
           width="32"
-          onClick={() => setPopupEnabled(true)}
+          onClick={() => setMenuPopupEnabled(true)}
         />
         <div className="header-desktop-icons">
           <Icon
@@ -52,7 +50,6 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
           />
           <Icon
             icon="flagpack:pl"
-            color="white"
             width="48"
             onClick={() => {
               i18n.changeLanguage("pl");
@@ -60,15 +57,23 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
           />
           <Icon
             icon="flagpack:us"
-            color="white"
             width="48"
             onClick={() => {
               i18n.changeLanguage("en");
             }}
           />
+          <Icon
+            icon="mdi:information-slab-box"
+            width="48"
+            color="#787680"
+            onClick={() => {
+              setInfoPopupEnabled(true);
+            }}
+          />
         </div>
       </header>
-      {popupEnabled && <Menu togglePopup={togglePopup} />}
+      {menuPopupEnabled && <Menu togglePopup={setMenuPopupEnabled} />}
+      {infoPopupEnabled && <Info togglePopup={setInfoPopupEnabled} />}
     </>
   );
 };
