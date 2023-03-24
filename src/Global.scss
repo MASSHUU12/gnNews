@@ -1,10 +1,26 @@
 @use "./variables" as v;
 
-@import url('https://api.fonts.coollabs.io/css2?family=Poppins:wght@300;500;600;700&display=swap');
+@import url('https://api.fonts.coollabs.io/css2?family=Montserrat:wght@300;500;600;700&display=swap');
+
+::-webkit-scrollbar {
+  width: v.$p-s;
+}
+
+::-webkit-scrollbar-track {
+  background: v.$c-gray;
+}
+
+::-webkit-scrollbar-thumb {
+  background: v.$c-dark-purple;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: v.$c-white;
+}
 
 * {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
