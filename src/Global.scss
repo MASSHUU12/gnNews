@@ -15,7 +15,7 @@ body {
 header,
 footer {
   background-color: v.$c-indigo;
-  padding: v.$p-ml;
+  padding: v.$p-m v.$p-ml;
 
   a {
     text-decoration: none;
@@ -28,6 +28,18 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  .header-desktop-icons {
+    display: none;
+  }
+}
+
+svg[data-active="false"] {
+  color: v.$c-gray;
+}
+
+svg[data-active="true"] {
+  color: v.$c-blue;
 }
 
 .country-item {
@@ -36,4 +48,20 @@ header {
   justify-content: flex-start;
   align-items: center;
   gap: v.$p-m;
+}
+
+@media (min-width: 1280px) {
+  header {
+    .header-desktop-icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: v.$p-m;
+    }
+
+    .header-mobile-hamburger {
+      display: none;
+    }
+  }
 }

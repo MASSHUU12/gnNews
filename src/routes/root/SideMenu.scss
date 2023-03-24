@@ -8,6 +8,34 @@
   .side_menu-container {
     display: block;
     background-color: v.$c-indigo;
-    width: fit-content;
+    width: 15%;
+    max-width: 15%;
+    padding: v.$p-m v.$p-ml;
+
+    h3 {
+      margin: 0 0 v.$p-s;
+    }
+
+    .side_menu-countries {
+      height: calc(100% - 2rem);
+      overflow-y: scroll;
+      margin-bottom: 5rem;
+      max-height: 90vh;
+    }
+
+    .country-item {
+      margin: v.$p-m 0;
+      padding: v.$p-m;
+      border-radius: v.$p-s;
+      cursor: pointer;
+    }
+
+    .country-item:hover {
+      background-color: v.$c-dark-purple;
+    }
+
+    .country-item[data-active="true"] {
+      background-color: v.$c-blue;
+    }
   }
 }

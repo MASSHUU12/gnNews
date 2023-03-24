@@ -69,7 +69,7 @@ const Menu: React.FunctionComponent<TogglePopup> = ({
                 ? countriesData[key].en
                 : countriesData[key].pl
             }
-            onClick={() => {
+            clicked={() => {
               dispatch(setTargetCountry(countriesData[key].en));
             }}
           />

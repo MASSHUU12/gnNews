@@ -11,14 +11,6 @@ p {
   align-items: center;
   gap: v.$p-m;
   margin: v.$p-m 0;
-
-  svg[data-active="false"] {
-    color: v.$c-gray;
-  }
-
-  svg[data-active="true"] {
-    color: v.$c-blue;
-  }
 }
 
 .menu-row:first-child {
