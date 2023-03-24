@@ -1,5 +1,64 @@
 # gnNews - gnStudio React.js developer challenge
 
+## Getting Started
+
+### Prerequisites
+
+Before starting, ensure you have the following installed on your local machine:
+
+- Node.js
+- NPM or Yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MASSHUU12/gnNews.git
+   ```
+2. Navigate to the project directory
+   ```bash
+   cd gnNews
+   ```
+3. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+### Development
+
+To start the development server, run the following command:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The development server should start running on http://localhost:5173. The page will reload automatically when changes are made to the code.
+
+### API
+
+Create an `.env` file based on the `.env.example` file.
+
+By default, the site will use the test data and not the API, you can change this in the `.env` file, you can get the API key [here](https://newsapi.org/docs/endpoints/top-headlines).
+
+### Building for Production
+
+To build the application for production, run the following command:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The built files will be located in the `dist` directory.
+
+<hr />
+
 Witaj, jeżeli znalazłeś się w tym miejscu to najprawdopodobniej chcesz dołączyć do niesamowitego teamu tworzącego rozwiązania szyte na miarę i chcesz w końcu realizować projekty, które nie będą nudne, będą sprawiały Ci frajdę i będą napawały Cię dumą kiedy tylko o nich pomyślisz.
 
 Cóż, projekty są różne, więc może tak właśnie być, a może być zupełnie odwrotnie 😉 Możemy Ci jedynie zagwarantować, że nie będziesz się nudzić.
