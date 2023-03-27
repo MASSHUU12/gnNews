@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { News } from "../../types";
+import { News } from "@/types";
 
-import countries from "../../countries.json";
+import countries from "@/countries.json";
 
 interface NewsState {
   targetCountry: string;

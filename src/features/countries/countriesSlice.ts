@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CountryNames } from "../../interfaces";
+import { CountryNames } from "@/interfaces";
 
-import countries from "../../countries.json";
+import countries from "@/countries.json";
 
 interface CountriesState {
   countries: CountryNames;

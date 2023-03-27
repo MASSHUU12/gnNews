@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { setLayout } from "../../features/layout/layoutSlice";
 
-import Popup from "./Popup";
-import "./Menu.scss";
-import { setTargetCountry } from "../../features/news/newsSlice";
-import { TogglePopup } from "../../interfaces";
-import CountryItem from "../CountryItem";
 import Info from "./Info";
+import Popup from "./Popup";
+import CountryItem from "../CountryItem";
+
+import { TogglePopup } from "@/interfaces";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { setLayout } from "@/features/layout/layoutSlice";
+
+import "./Menu.scss";
 
 const Menu: React.FunctionComponent<TogglePopup> = ({
   togglePopup,
@@ -82,9 +83,6 @@ const Menu: React.FunctionComponent<TogglePopup> = ({
                   ? countriesData[key].en
                   : countriesData[key].pl
               }
-              clicked={() => {
-                dispatch(setTargetCountry(countriesData[key].en));
-              }}
             />
           ))}
         </section>

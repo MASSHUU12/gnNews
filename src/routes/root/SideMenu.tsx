@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import CountryItem from "../../components/CountryItem";
-import { useAppSelector } from "../../hooks";
+
+import CountryItem from "@/components/CountryItem";
+import { useAppSelector } from "@/hooks";
 
 import "./SideMenu.scss";
 

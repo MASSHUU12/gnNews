@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
 
-import { useAppDispatch } from "../../hooks";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import SideMenu from "./SideMenu";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import { setTargetCountry } from "../../features/news/newsSlice";
-import { getCookie } from "../../helpers/getCookie";
+
+import { useAppDispatch } from "@/hooks";
+import { getCookie } from "@/helpers/getCookie";
+import { setTargetCountry } from "@/features/news/newsSlice";
 
 import "./Root.scss";
 

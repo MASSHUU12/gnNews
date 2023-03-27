@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import { useEffect, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 
-import Scroll from "../../helpers/scroll";
-import { TogglePopup } from "../../interfaces";
+import Scroll from "@/helpers/scroll";
+import { TogglePopup } from "@/interfaces";
+
 import "./Popup.scss";
 
 interface Props extends TogglePopup {

@@ -13,11 +13,11 @@ import Error from "./routes/error/Error";
 import Content from "./routes/root/content/Content";
 import Root from "./routes/root/Root";
 
-import { store } from "./app/store";
 import "./i18n";
+import { store } from "./app/store";
+import { detectUserLanguage } from "./helpers/lang";
 
 import "./Global.scss";
-import { detectUserLanguage } from "./helpers/lang";
 
 // Create the React Router with a Root component and a Content component.
 const router = createBrowserRouter([

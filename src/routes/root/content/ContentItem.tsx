@@ -1,10 +1,12 @@
 import { useState } from "react";
-import Description from "../../../components/popup/Description";
-import { formatISODate } from "../../../helpers/time";
-import { useAppSelector } from "../../../hooks";
-import { ContentItem } from "../../../types";
+
 import GridItem from "./GridItem";
 import ListItem from "./ListItem";
+import Description from "@/components/popup/Description";
+
+import { formatISODate } from "@/helpers/time";
+import { useAppSelector } from "@/hooks";
+import { ContentItem } from "@/types";
 
 /**
  * Component that renders a content item

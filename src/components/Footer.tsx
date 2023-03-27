@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { getCurrentTime } from "../helpers/time";
-import { useAppSelector } from "../hooks";
+import { useAppSelector } from "@/hooks";
+import { getCurrentTime } from "@/helpers/time";
 
 /**
  * Footer component

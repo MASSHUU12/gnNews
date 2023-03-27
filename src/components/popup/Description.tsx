@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-import { formatISODate } from "../../helpers/time";
-import { TogglePopup } from "../../interfaces";
-import { ContentItem } from "../../types";
 import Popup from "./Popup";
+
+import { ContentItem } from "@/types";
+import { TogglePopup } from "@/interfaces";
+import { formatISODate } from "@/helpers/time";
 
 import "./Description.scss";
 

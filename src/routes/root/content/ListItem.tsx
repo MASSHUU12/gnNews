@@ -1,4 +1,4 @@
-import { ListItem as Item } from "../../../types";
+import { ListItem as Item } from "@/types";
 
 /**
  * Component that renders a list item

@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
-import { setNews } from "../../../features/news/newsSlice";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import "./Content.scss";
 import ContentItem from "./ContentItem";
 
+import { News, NewsAPIResponse } from "@/types";
+import { setNews } from "@/features/news/newsSlice";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+
 import testData from "./TestData.json";
-import { News, NewsAPIResponse } from "../../../types";
+
+import "./Content.scss";
 
 /**
  * Components that displays a list of news articles.

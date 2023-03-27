@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import { TogglePopup } from "../../interfaces";
 import Popup from "./Popup";
+import { TogglePopup } from "@/interfaces";
 
 const Info: React.FunctionComponent<TogglePopup> = ({
   togglePopup,

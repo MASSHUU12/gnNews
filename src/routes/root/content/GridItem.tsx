@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { GridItem as Grid } from "../../../types";
+import { GridItem as Grid } from "@/types";
 
 /**
  * Component that renders a grid item for a given item
