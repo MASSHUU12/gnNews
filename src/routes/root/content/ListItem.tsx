@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
+
 import { ListItem as Item } from "@/types";
 
 /**
@@ -13,11 +16,28 @@ const ListItem: React.FunctionComponent<Item> = ({
   title,
   publishedAt,
 }: Item): JSX.Element => {
+  const [play, setPlay] = useState(false);
+
+  const hoverAnimation = useSpring({
+    from: {
+      scale: 1,
+    },
+    to: {
+      scale: 1.02,
+    },
+    reverse: !play,
+  });
+
   return (
-    <div className="list-item">
+    <animated.div
+      style={hoverAnimation}
+      className="list-item"
+      onMouseOver={() => setPlay(true)}
+      onMouseLeave={() => setPlay(false)}
+    >
       <h3>{title}</h3>
       <h4>{publishedAt}</h4>
-    </div>
+    </animated.div>
   );
 };
 

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSpring, animated } from "@react-spring/web";
 
 import { GridItem as Grid } from "@/types";
 
@@ -18,10 +20,26 @@ const GridItem: React.FunctionComponent<Grid> = ({
   urlToImage,
   description,
 }: Grid): JSX.Element => {
+  const [play, setPlay] = useState(false);
   const { t } = useTranslation();
 
+  const hoverAnimation = useSpring({
+    from: {
+      scale: 1,
+    },
+    to: {
+      scale: 1.02,
+    },
+    reverse: !play,
+  });
+
   return (
-    <div className="grid-item">
+    <animated.div
+      style={hoverAnimation}
+      className="grid-item"
+      onMouseOver={() => setPlay(true)}
+      onMouseLeave={() => setPlay(false)}
+    >
       <h3>{title}</h3>
       {description && <h4>{description}</h4>}
       <h5>{publishedAt}</h5>
@@ -31,7 +49,7 @@ const GridItem: React.FunctionComponent<Grid> = ({
           alt={t("article_picture") as string}
         />
       </div>
-    </div>
+    </animated.div>
   );
 };
 

@@ -87,6 +87,7 @@
 
       .grid-item {
         min-height: 25vh;
+        cursor: pointer;
 
         h3 {
           margin: unset;
@@ -96,6 +97,7 @@
       .list-item {
         justify-content: center;
         min-height: 10vh;
+        cursor: pointer;
       }
     }
   }
