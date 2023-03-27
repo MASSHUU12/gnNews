@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { animated, useSpring } from "@react-spring/web";
 
 import Scroll from "@/helpers/scroll";
@@ -18,32 +18,25 @@ interface Props extends TogglePopup {
  * @param {*} props
  * @return {*}  {JSX.Element}
  */
-const Popup: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
-  const [revert, setRevert] = useState(false);
-
+const Popup: React.FunctionComponent<Props> = ({
+  title,
+  children,
+  togglePopup,
+}: Props): JSX.Element => {
   useEffect(() => {
     Scroll.disable();
   }, []);
 
-  const animation = {
+  const [bgAnimation, api] = useSpring(() => ({
     from: {
       x: window.innerWidth,
     },
-    to: {
-      x: 0,
-    },
-  };
-
-  const bgAnimation = useSpring({
-    ...animation,
-    reverse: revert,
-    onRest: () => {
-      revert && (props.togglePopup(false), Scroll.enable());
-    },
-  });
+    to: { x: 0 },
+    reverse: false,
+  }));
 
   const bgAnimation2 = useSpring({
-    ...animation,
+    ...bgAnimation,
     delay: 100,
   });
 
@@ -51,17 +44,24 @@ const Popup: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     <animated.div style={bgAnimation} className="popup-container">
       <animated.div style={bgAnimation2}>
         <section className="popup-container-title">
-          <h3>{props.title}</h3>
+          <h3>{title}</h3>
           <Icon
             icon="ion:close"
             color="#00a3ff"
             width="48"
             onClick={() => {
-              setRevert(true);
+              api.start({
+                ...bgAnimation,
+                reverse: true,
+                onRest: () => {
+                  togglePopup(false);
+                  Scroll.enable();
+                },
+              });
             }}
           />
         </section>
-        <section>{props.children}</section>
+        <section>{children}</section>
       </animated.div>
     </animated.div>
   );
