@@ -68,6 +68,8 @@ svg[data-active="true"] {
   justify-content: flex-start;
   align-items: center;
   gap: v.$p-m;
+  text-decoration: none;
+  color: v.$c-white;
 }
 
 @media (min-width: 1280px) {

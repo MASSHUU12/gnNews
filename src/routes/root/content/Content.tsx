@@ -19,32 +19,26 @@ const Content: React.FunctionComponent<any> = (): JSX.Element => {
   const targetCountry = useAppSelector((state) => state.news.targetCountry);
   const data = useAppSelector((state) => state.news.news);
 
-  const { t } = useTranslation();
-
   // Sets news data in the store.
   useEffect(() => {
     if (import.meta.env.VITE_USE_API === "false") {
-      alert(t("test_data_warning"));
-      dispatch(setNews(testData));
+      targetCountry != "" && dispatch(setNews(testData));
     } else {
-      fetch(
-        `https://newsapi.org/v2/top-headlines?country=${targetCountry}&apiKey=${
-          import.meta.env.VITE_API_KEY
-        }`
-      ).then((response) => {
-        response.json().then((data: NewsAPIResponse) => {
-          let news: News = [];
-
-          // console.log(data);
-
-          data.articles.map((article) => {
-            console.log(article);
-
-            news.push(article);
+      if (targetCountry != "") {
+        fetch(
+          `https://newsapi.org/v2/top-headlines?country=${targetCountry}&apiKey=${
+            import.meta.env.VITE_API_KEY
+          }`
+        ).then((response) => {
+          response.json().then((data: NewsAPIResponse) => {
+            let news: News = [];
+            data.articles.map((article) => {
+              news.push(article);
+            });
+            dispatch(setNews(news));
           });
-          dispatch(setNews(news));
         });
-      });
+      }
     }
   }, [targetCountry]);
 

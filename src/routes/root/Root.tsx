@@ -1,8 +1,13 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
+
+import { useAppDispatch } from "../../hooks";
+import SideMenu from "./SideMenu";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import SideMenu from "./SideMenu";
+import { setTargetCountry } from "../../features/news/newsSlice";
+import { getCookie } from "../../helpers/getCookie";
 
 import "./Root.scss";
 
@@ -15,12 +20,25 @@ const Root: React.FunctionComponent<any> = (): JSX.Element => {
   // Get the countryName parameter from the URL
   const { countryName } = useParams();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Redirect to Poland if no country is specified
     if (countryName === undefined) {
-      navigate("/country/poland");
-    }
+      navigate("/country/pl");
+      dispatch(setTargetCountry("pl"));
+    } else dispatch(setTargetCountry(countryName));
+
+    return () => {
+      const cookie = getCookie("testDataAlertDisplayed");
+
+      if (import.meta.env.VITE_USE_API === "false" && cookie != "true") {
+        document.cookie = "testDataAlertDisplayed=true";
+        alert(t("test_data_warning"));
+      }
+    };
   }, []);
 
   return (

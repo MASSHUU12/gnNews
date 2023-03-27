@@ -10,7 +10,7 @@ interface NewsState {
 }
 
 const initialState: NewsState = {
-  targetCountry: "pl",
+  targetCountry: "",
   newsNumber: 0,
   news: [],
 };

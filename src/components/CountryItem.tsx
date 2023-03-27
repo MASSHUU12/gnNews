@@ -1,24 +1,24 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 import { useAppSelector } from "../hooks";
 
 interface Props {
   code: string;
   name: string;
-  clicked: () => any;
 }
 
 const CountryItem: React.FunctionComponent<Props> = ({
   code,
   name,
-  clicked,
 }: Props): JSX.Element => {
   const targetCountry = useAppSelector((state) => state.news.targetCountry);
 
   return (
-    <section
+    <Link
+      reloadDocument
+      to={`/country/${code}`}
       className="country-item"
       data-active={code === targetCountry ? "true" : "false"}
-      onClick={() => clicked()}
     >
       <Icon
         icon={`flagpack:${code === "gb" ? "gb-ukm" : code}`}
@@ -26,7 +26,7 @@ const CountryItem: React.FunctionComponent<Props> = ({
         width="48"
       />
       <span>{name}</span>
-    </section>
+    </Link>
   );
 };
 
