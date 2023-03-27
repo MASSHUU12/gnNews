@@ -1,0 +1,39 @@
+@use "../../variables" as v;
+
+.error-container {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    margin: auto 0 0 0;
+    font-size: v.$fs-rl;
+    width: 80%;
+  }
+
+  h2 {
+    margin: auto 0 0 0;
+    font-size: v.$fs-xxl;
+  }
+
+  span {
+    font-weight: 300;
+    color: v.$c-gray;
+  }
+
+  span,
+  a {
+    margin: 0 0 auto 0;
+  }
+
+  a {
+    text-decoration: none;
+    padding: v.$p-m;
+    background-color: v.$c-gray;
+    color: v.$c-white;
+    border-radius: v.$p-s;
+  }
+}

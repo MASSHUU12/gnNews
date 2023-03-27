@@ -1,4 +1,7 @@
-import { useRouteError } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useRouteError } from "react-router-dom";
+
+import "./Error.scss";
 
 /**
  * Component that displays the error message
@@ -9,7 +12,20 @@ import { useRouteError } from "react-router-dom";
 const Error: React.FunctionComponent<any> = (): JSX.Element => {
   const error = useRouteError();
 
-  return <div>{error.statusText || error.message}</div>;
+  useEffect(() => {
+    console.log(error);
+  }, []);
+
+  return (
+    <div className="error-container">
+      <h1>Oops! Looks like something went wrong!</h1>
+      <h2>{error.status}</h2>
+      <span>{error.statusText || error.message}</span>
+      <Link to="/country/pl" reloadDocument>
+        Take me home
+      </Link>
+    </div>
+  );
 };
 
 export default Error;
