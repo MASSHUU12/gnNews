@@ -53,6 +53,7 @@ const Menu: React.FunctionComponent<TogglePopup> = ({
             width="48"
             onClick={() => {
               i18n.changeLanguage("pl");
+              document.cookie = "language=pl; Path=/";
             }}
           />
           <Icon
@@ -61,6 +62,7 @@ const Menu: React.FunctionComponent<TogglePopup> = ({
             width="48"
             onClick={() => {
               i18n.changeLanguage("en");
+              document.cookie = "language=en; Path=/";
             }}
           />
           <Icon

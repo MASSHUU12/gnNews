@@ -18,6 +18,7 @@ import { store } from "./app/store";
 import { detectUserLanguage } from "./helpers/lang";
 
 import "./Global.scss";
+import { getCookie } from "./helpers/getCookie";
 
 // Create the React Router with a Root component and a Content component.
 const router = createBrowserRouter([
@@ -34,8 +35,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Change language to user preferred language.
-i18next.changeLanguage(detectUserLanguage());
+// Change language to user preferred or saved language.
+i18next.changeLanguage(getCookie("language") || detectUserLanguage());
 
 // Render the main component with React Router and Redux store.
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

@@ -55,6 +55,7 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
             width="48"
             onClick={() => {
               i18n.changeLanguage("pl");
+              document.cookie = "language=pl; Path=/";
             }}
           />
           <Icon
@@ -62,6 +63,7 @@ const Header: React.FunctionComponent<any> = (): JSX.Element => {
             width="48"
             onClick={() => {
               i18n.changeLanguage("en");
+              document.cookie = "language=en; Path=/";
             }}
           />
           <Icon

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useRouteError } from "react-router-dom";
 
 import "./Error.scss";
@@ -11,18 +11,15 @@ import "./Error.scss";
  */
 const Error: React.FunctionComponent<any> = (): JSX.Element => {
   const error = useRouteError();
-
-  useEffect(() => {
-    console.log(error);
-  }, []);
+  const { t } = useTranslation();
 
   return (
     <div className="error-container">
-      <h1>Oops! Looks like something went wrong!</h1>
+      <h1>{t("oops")}</h1>
       <h2>{error.status}</h2>
       <span>{error.statusText || error.message}</span>
       <Link to="/country/pl" reloadDocument>
-        Take me home
+        {t("take_me_home")}
       </Link>
     </div>
   );

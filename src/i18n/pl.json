@@ -10,5 +10,7 @@
   "test_data_warning": "Uwaga, korzystasz z danych testowych, jeśli chcesz wyświetlić faktyczne informacje, skonfiguruj odpowiednio plik .env.",
   "about_project": "O projekcie",
   "biggest_challenge": "Największym wyzwaniem było stworzenie designu strony, co pewnie widać, oraz pisanie testów z tego względu, że nigdy tego nie robiłem, to był pierwszy raz.",
-  "the_most_fun": "Największą frajdę sprawiła oczywiście sama implementacja wszystkich mechanik, całego projektu. Pewnie spędziłem nad tym więcej czasu, niż powinienem, ale uwielbiam kombinować."
+  "the_most_fun": "Największą frajdę sprawiła oczywiście sama implementacja wszystkich mechanik, całego projektu. Pewnie spędziłem nad tym więcej czasu, niż powinienem, ale uwielbiam kombinować.",
+  "oops": "Ups! Coś poszło nie tak!",
+  "take_me_home": "Zabierz mnie z powrotem"
 }

@@ -10,5 +10,7 @@
   "test_data_warning": "Note, you are using test data, if you want to display the actual information, configure the .env file accordingly.",
   "about_project": "About project",
   "biggest_challenge": "The biggest challenge was creating the design of the site, which you can probably see, and writing tests due to the fact that I had never done it, this was the first time.",
-  "the_most_fun": "The most fun, of course, was the actual implementation of all the mechanics, the whole project. I probably spent more time on it than I should have, but I love tinkering."
+  "the_most_fun": "The most fun, of course, was the actual implementation of all the mechanics, the whole project. I probably spent more time on it than I should have, but I love tinkering.",
+  "oops": "Oops! Looks like something went wrong!",
+  "take_me_home": "Take me home"
 }
