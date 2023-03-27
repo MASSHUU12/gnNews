@@ -7,6 +7,15 @@ interface Props {
   name: string;
 }
 
+/**
+ * Functional component that renders a country item
+ * with its corresponding flag and name.
+ *
+ * @param {object} props - The props object containing the country code and name.
+ * @param {string} props.code - The ISO 3166-1 alpha-2 code of the country.
+ * @param {string} props.name - The name of the country.
+ * @return {*}  {JSX.Element} The country item JSX Element.
+ */
 const CountryItem: React.FunctionComponent<Props> = ({
   code,
   name,
