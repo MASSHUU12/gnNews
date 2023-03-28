@@ -11,6 +11,9 @@
     width: 15%;
     max-width: 15%;
     padding: v.$p-m v.$p-ml;
+    margin: v.$p-m;
+    margin-right: 0;
+    border-radius: v.$p-m;
 
     h3 {
       margin: 0 0 v.$p-s;

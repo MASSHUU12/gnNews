@@ -74,6 +74,11 @@ svg[data-active="true"] {
 
 @media (min-width: 1280px) {
   header {
+    box-shadow: v.$common-shadow;
+    margin: v.$p-m;
+    margin-bottom: 0;
+    border-radius: v.$p-m;
+
     .header-desktop-icons {
       display: flex;
       flex-direction: row;

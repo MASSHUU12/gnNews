@@ -9,7 +9,7 @@
   margin: v.$p-ml;
   padding: v.$p-ml;
   border-radius: v.$p-s;
-  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+  box-shadow: v.$common-shadow;
   user-select: none;
   display: flex;
   flex-direction: column;
