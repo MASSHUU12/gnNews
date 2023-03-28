@@ -28,17 +28,7 @@
 
     .country-item {
       margin: v.$p-m 0;
-      padding: v.$p-m;
-      border-radius: v.$p-s;
       cursor: pointer;
-    }
-
-    .country-item:hover {
-      background-color: v.$c-dark-purple;
-    }
-
-    .country-item[data-active="true"] {
-      background-color: v.$c-blue;
     }
   }
 }

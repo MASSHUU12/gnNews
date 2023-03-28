@@ -70,6 +70,16 @@ svg[data-active="true"] {
   gap: v.$p-m;
   text-decoration: none;
   color: v.$c-white;
+  padding: v.$p-m;
+  border-radius: v.$p-s;
+}
+
+.country-item:hover {
+  background-color: v.$c-dark-purple;
+}
+
+.country-item[data-active="true"] {
+  background-color: v.$c-blue;
 }
 
 @media (min-width: 1280px) {

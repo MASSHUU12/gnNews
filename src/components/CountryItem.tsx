@@ -28,6 +28,7 @@ const CountryItem: React.FunctionComponent<Props> = ({
       to={`/country/${code}`}
       className="country-item"
       data-active={code === targetCountry ? "true" : "false"}
+      id={code}
     >
       <Icon
         icon={`flagpack:${code === "gb" ? "gb-ukm" : code}`}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 
@@ -6,6 +6,7 @@ import Info from "./Info";
 import Popup from "./Popup";
 import CountryItem from "../CountryItem";
 
+import Scroll from "@/helpers/scroll";
 import { TogglePopup } from "@/interfaces";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setLayout } from "@/features/layout/layoutSlice";
@@ -19,9 +20,23 @@ const Menu: React.FunctionComponent<TogglePopup> = ({
 
   const layout = useAppSelector((state) => state.layout.layout);
   const countriesData = useAppSelector((state) => state.countries.countries);
+  const targetCountry = useAppSelector((state) => state.news.targetCountry);
   const dispatch = useAppDispatch();
 
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    if (targetCountry !== "") {
+      // Ensure the browser has enough time to render the list before scrolling.
+      // This method fixes an issue where the browser stops scrolling
+      // after a while if the list is too long
+      window.requestAnimationFrame(() => {
+        Scroll.intoView({
+          target: `#${targetCountry}`,
+        });
+      });
+    }
+  }, [targetCountry]);
 
   return (
     <>
