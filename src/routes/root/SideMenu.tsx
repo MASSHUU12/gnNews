@@ -16,14 +16,19 @@ const SideMenu: React.FunctionComponent<any> = (): JSX.Element => {
 
   useEffect(() => {
     if (targetCountry !== "") {
-      // Scroll through list of countries to the selected country
-      Scroll.intoView({
-        target: `#${targetCountry}`,
-      });
+      // Ensure the browser has enough time to render the list before scrolling.
+      // This method fixes an issue where the browser stops scrolling
+      // after a while if the list is too long
+      window.requestAnimationFrame(() => {
+        // Scroll through list of countries to the selected country
+        Scroll.intoView({
+          target: `#${targetCountry}`,
+        });
 
-      // Scroll whole window, so the header is again visible
-      window.scrollTo({
-        top: 0,
+        // Scroll whole window, so the header is again visible
+        window.scrollTo({
+          top: 0,
+        });
       });
     }
   }, [targetCountry]);
