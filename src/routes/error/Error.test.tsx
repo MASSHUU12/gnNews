@@ -4,6 +4,8 @@ import { MemoryRouter } from "react-router-dom";
 import { useRouteError } from "react-router";
 
 import Error from "./Error";
+import i18n from "@/i18n";
+import { initReactI18next } from "react-i18next";
 
 // Mock the useRouteError hook
 jest.mock("react-router", () => ({
@@ -17,6 +19,14 @@ jest.mock("react-router", () => ({
 }));
 
 describe("Error component", () => {
+  i18n.use(initReactI18next).init({
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+
   it("should display error message", () => {
     render(
       <MemoryRouter>
@@ -25,10 +35,12 @@ describe("Error component", () => {
     );
 
     // Assert that certain elements are rendered with expected text and attributes
-    expect(screen.getByText("oops")).toBeInTheDocument();
+    expect(
+      screen.getByText("Oops! Looks like something went wrong!")
+    ).toBeInTheDocument();
     expect(screen.getByText("404")).toBeInTheDocument();
     expect(screen.getByText("Not Found")).toBeInTheDocument();
-    expect(screen.getByText("take_me_home")).toHaveAttribute(
+    expect(screen.getByText("Take me home")).toHaveAttribute(
       "href",
       "/country/pl"
     );

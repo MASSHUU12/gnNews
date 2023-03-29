@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import GridItem from "./GridItem";
+import i18n from "@/i18n";
+import { initReactI18next } from "react-i18next";
 
 describe("GridItem", () => {
   const props = {
@@ -9,6 +11,14 @@ describe("GridItem", () => {
     urlToImage: "http://testurl.com/testimage.jpg",
     description: "Lorem ipsum dolor sit amet.",
   };
+
+  i18n.use(initReactI18next).init({
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
   it("should render the title, publishedAt, and image props correctly", () => {
     render(<GridItem {...props} />);

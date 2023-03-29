@@ -3,6 +3,8 @@ import "@testing-library/jest-dom";
 import { useAppSelector } from "@/hooks";
 import { getCurrentTime } from "@/helpers/time";
 import { render, screen } from "@testing-library/react";
+import i18n from "@/i18n";
+import { initReactI18next } from "react-i18next";
 
 jest.mock("@/hooks");
 jest.mock("@/helpers/time");
@@ -10,6 +12,14 @@ jest.mock("@/helpers/time");
 describe("Footer", () => {
   const newsNumber = 10;
   const now = "12:00:00 PM";
+
+  i18n.use(initReactI18next).init({
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
   beforeEach(() => {
     // Mock the useAppSelector hook to return a news number
@@ -27,7 +37,7 @@ describe("Footer", () => {
     render(<Footer />);
 
     expect(
-      screen.getByText(`time: ${now}, articles: ${newsNumber}`)
+      screen.getByText(`Time: ${now}, articles: ${newsNumber}`)
     ).toBeInTheDocument();
   });
 });
