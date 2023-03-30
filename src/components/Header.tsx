@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
-import Menu from "./popup/Menu";
-import Info from "./popup/Info";
-
 import i18n from "@/i18n";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setLayout } from "@/features/layout/layoutSlice";
+
+import Menu from "./popup/Menu";
+import Info from "./popup/Info";
 
 /**
  * Header component
