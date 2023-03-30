@@ -1,5 +1,5 @@
-import { Icon } from "@iconify/react";
 import { useEffect } from "react";
+import { Icon } from "@iconify/react";
 import { animated, useSpring } from "@react-spring/web";
 
 import Scroll from "@/helpers/scroll";

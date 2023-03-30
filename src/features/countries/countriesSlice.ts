@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { CountryNames } from "@/interfaces";
+import { createSlice } from "@reduxjs/toolkit";
 
 import countries from "@/countries.json";
 

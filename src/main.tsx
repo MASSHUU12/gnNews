@@ -1,17 +1,17 @@
-/**
- * Entry point for the application,
- * render the main component and sets up the React Router.
- */
+//
+// Entry point for the application,
+// render the main component and sets up the React Router.
+//
 
 import React from "react";
+import i18next from "i18next";
+import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Provider } from "react-redux";
-import i18next from "i18next";
 
+import Root from "./routes/root/Root";
 import Error from "./routes/error/Error";
 import Content from "./routes/root/content/Content";
-import Root from "./routes/root/Root";
 
 import "./i18n";
 import { store } from "./app/store";

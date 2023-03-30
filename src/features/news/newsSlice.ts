@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { News } from "@/types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import countries from "@/countries.json";
 

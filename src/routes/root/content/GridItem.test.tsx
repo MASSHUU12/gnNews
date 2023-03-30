@@ -1,8 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import GridItem from "./GridItem";
-import i18n from "@/i18n";
 import { initReactI18next } from "react-i18next";
+import { render, screen } from "@testing-library/react";
+
+import i18n from "@/i18n";
+import GridItem from "./GridItem";
 
 describe("GridItem", () => {
   const props = {

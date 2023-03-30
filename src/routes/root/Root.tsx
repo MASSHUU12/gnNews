@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
 
+import SideMenu from "./SideMenu";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import SideMenu from "./SideMenu";
 
 import { useAppDispatch } from "@/hooks";
 import { getCookie } from "@/helpers/getCookie";

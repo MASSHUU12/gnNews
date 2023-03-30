@@ -1,10 +1,12 @@
-import Footer from "./Footer";
 import "@testing-library/jest-dom";
+import { initReactI18next } from "react-i18next";
+import { render, screen } from "@testing-library/react";
+
+import i18n from "@/i18n";
 import { useAppSelector } from "@/hooks";
 import { getCurrentTime } from "@/helpers/time";
-import { render, screen } from "@testing-library/react";
-import i18n from "@/i18n";
-import { initReactI18next } from "react-i18next";
+
+import Footer from "./Footer";
 
 jest.mock("@/hooks");
 jest.mock("@/helpers/time");

@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+
 import ListItem from "./ListItem";
 
 // https://www.w3.org/TR/html-aria/#docconformance

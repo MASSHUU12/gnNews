@@ -1,11 +1,11 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
 import { useRouteError } from "react-router";
-
-import Error from "./Error";
-import i18n from "@/i18n";
+import { MemoryRouter } from "react-router-dom";
 import { initReactI18next } from "react-i18next";
+import { render, screen } from "@testing-library/react";
+
+import i18n from "@/i18n";
+import Error from "./Error";
 
 // Mock the useRouteError hook
 jest.mock("react-router", () => ({
